@@ -74,6 +74,7 @@ library
         Data.Time.Format,
         Data.Time.Format.Internal,
         Data.Time.Format.ISO8601,
+        Data.Time.LunarCalendar,
         Data.Time
     other-modules:
         Data.Format,
@@ -84,6 +85,9 @@ library
         Data.Time.Calendar.Private,
         Data.Time.Calendar.Types,
         Data.Time.Calendar.Week,
+        Data.Time.Calendar.Lunar.Types,
+        Data.Time.Calendar.Lunar.Lunar,
+        Data.Time.Calendar.Lunar.MonthDay,
         Data.Time.Clock.Internal.DiffTime,
         Data.Time.Clock.Internal.AbsoluteTime,
         Data.Time.Clock.Internal.NominalDiffTime,
@@ -164,7 +168,7 @@ test-suite test-main
         tasty,
         tasty-hunit,
         tasty-quickcheck,
-        template-haskell
+        template-haskell,
     main-is: Main.hs
     other-modules:
         Test.Types

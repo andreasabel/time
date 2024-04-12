@@ -4,6 +4,8 @@
 module Data.Time.Format.Locale (
     TimeLocale (..),
     defaultTimeLocale,
+
+    lunarTimeLocale,
     iso8601DateFormat,
     rfc822DateFormat,
 ) where
@@ -57,6 +59,51 @@ defaultTimeLocale =
             ]
         , amPm = ("AM", "PM")
         , dateTimeFmt = "%a %b %e %H:%M:%S %Z %Y"
+        , dateFmt = "%m/%d/%y"
+        , timeFmt = "%H:%M:%S"
+        , time12Fmt = "%I:%M:%S %p"
+        , knownTimeZones =
+            [ TimeZone 0 False "UT"
+            , TimeZone 0 False "GMT"
+            , TimeZone (-5 * 60) False "EST"
+            , TimeZone (-4 * 60) True "EDT"
+            , TimeZone (-6 * 60) False "CST"
+            , TimeZone (-5 * 60) True "CDT"
+            , TimeZone (-7 * 60) False "MST"
+            , TimeZone (-6 * 60) True "MDT"
+            , TimeZone (-8 * 60) False "PST"
+            , TimeZone (-7 * 60) True "PDT"
+            ]
+        }
+
+lunarTimeLocale :: TimeLocale
+lunarTimeLocale =
+    TimeLocale
+        { wDays =
+            [ ("al-'Ahad"     , "Sun")
+            , ("al-Ithnayn"   , "Mon")
+            , ("ath-Thulatha'", "Tue")
+            , ("al-'Arbiʿa'"  , "Wed")
+            , ("al-Khamis"    , "Thu")
+            , ("al-Jumʿah"    , "Fri")
+            , ("al-Sabt"      , "Sat")
+            ]
+        , months =
+            [ ("al-Muharram", "Jan")
+            , ("Safar", "Feb")
+            , ("Rabi' al-Awwal", "Mar")
+            , ("Rabi' al-Thani", "Apr")
+            , ("Jumada al-Awwal", "May")
+            , ("Jumada al-Thani", "Jun")
+            , ("Rajab", "Jul")
+            , ("Sha'ban", "Aug")
+            , ("Ramadan", "Sep")
+            , ("Shawwal", "Oct")
+            , ("Dhu al-Qi'dah", "Nov")
+            , ("Dhu al-Hijjah", "Dec")
+            ]
+        , amPm = ("AM", "PM")
+        , dateTimeFmt = "%A %B %H:%M:%S %Z %Y"
         , dateFmt = "%m/%d/%y"
         , timeFmt = "%H:%M:%S"
         , time12Fmt = "%I:%M:%S %p"
